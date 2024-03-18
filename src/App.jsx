@@ -1,7 +1,6 @@
 import Subscription from "./Subscription"
 import PricingSubscription from "./PricingSubscription";
-import BillingInput from "./BillingInput";
-import TrialStart from "./TrialStart";
+
 
 function App() {
 
@@ -10,9 +9,7 @@ function App() {
     <>
       <main>
         <Subscription />
-        <PricingSubscription />
-        <BillingInput />
-        <TrialStart />
+        <PricingSubscription /> 
       </main>
 
       <footer>

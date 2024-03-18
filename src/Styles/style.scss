@@ -1,0 +1,84 @@
+@use 'reset';
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+//Variables
+$main-bg-color: hsl(222, 87%, 97%);
+$text-color: hsl(225, 20%, 60%);
+
+@mixin Flex($direction) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    font-family: Manrope, Arial, Helvetica, sans-serif;
+
+    @include Flex(column);
+
+    //Background properties
+    background-color: $main-bg-color;
+    background-image: url(../assets/images/pattern-circles.svg);
+    background-repeat: no-repeat;
+    background-position: top 10% center;
+}
+
+main {
+    max-width: 21rem;
+}
+
+//Subscription Styling Section
+.subscription-container {
+
+    .title {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    p {
+        text-align: center;
+        font-weight: 600;
+        color: $text-color;
+    }
+}
+
+//===================//
+
+.pricing-container {
+    background-color: white;
+    padding: 1em;
+    border-radius: 12px;
+
+    .page-views-text {
+        text-align: center;
+        font-weight: 600;
+        color: $text-color;
+    }
+
+    .price-text {
+        font-size: 2rem;
+        font-weight: 800;
+        text-align: center;
+
+        span {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: $text-color;
+        }
+    }
+}
+
+//=========================//
+
+.trial-container {
+    border-top: 1px solid lightgray;
+    text-align: center;
+    
+
+    .trial-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+}

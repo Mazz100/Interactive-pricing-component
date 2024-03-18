@@ -2,14 +2,14 @@
 
 function TrialStart() {
     return (
-        <div>
-            <ul>
+        <div className="trial-container">
+            <ul className="trial-list">
                 <li> Unlimited websites</li>
                 <li>100% data ownership</li>
                 <li>Email reports</li>
             </ul>
 
-            <button>
+            <button className="trial-button">
                 Start my trial
             </button>
         </div>
