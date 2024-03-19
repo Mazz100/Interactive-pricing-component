@@ -1,10 +1,10 @@
 import sliderIcon from './assets/images/icon-slider.svg'
 import BillingInput from "./BillingInput";
-import TrialStart from "./TrialStart";
+import TrialComponent from "./TrialComponent";
 import React, { useEffect, useState } from 'react'
+import * as Slider from '@radix-ui/react-slider'
 
-
-function PricingSubscription() {
+function PricingComponent() {
     const [page, setPage] = useState(100);
     const [price, setPrice] = useState(16);
 
@@ -17,17 +17,21 @@ function PricingSubscription() {
                 </p>
 
                 {/*Pricing Slider*/}
-                <div className="bg-slider">
-                    <div className="fg-slider">
+                <Slider.Root className='sliderRoot' defaultValue={[50]} max={100} step={1}>
+                    <Slider.Track className='sliderTrack'>
+                        <Slider.Range className='sliderRange' />
+                    </Slider.Track>
+                    <Slider.Thumb className='thumbSlider'>
                         <img src={sliderIcon} alt="" />
-                    </div>
-                </div>
+                    </Slider.Thumb>
+                </Slider.Root>
+
 
                 <p className='price-text'>{`$${price.toFixed(2)}`}<span> / month</span></p>
 
                 <BillingInput />
 
-                <TrialStart />
+                <TrialComponent />
             </div>
 
 
@@ -35,4 +39,4 @@ function PricingSubscription() {
     )
 }
 
-export default PricingSubscription
+export default PricingComponent

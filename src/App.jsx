@@ -1,5 +1,5 @@
 import Subscription from "./Subscription"
-import PricingSubscription from "./PricingSubscription";
+import PricingComponent from "./PricingComponent";
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <>
       <main>
         <Subscription />
-        <PricingSubscription /> 
+        <PricingComponent /> 
       </main>
 
       <footer>
