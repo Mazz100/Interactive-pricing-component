@@ -15,21 +15,25 @@ function PricingComponent() {
                 <p className="page-views-text">
                     {`${page}K pageviews`}
                 </p>
+                
+                <form action="" name="">
+                    {/*Pricing Slider*/}
+                    <Slider.Root className='sliderRoot'
+                        defaultValue={[50]}
+                        max={100}
+                        step={10}>
+                        <Slider.Track className='sliderTrack'>
+                            <Slider.Range className='sliderRange' />
+                        </Slider.Track>
+                        <Slider.Thumb className='thumbSlider'>
+                            <img src={sliderIcon} alt="" />
+                        </Slider.Thumb>
+                    </Slider.Root>
 
-                {/*Pricing Slider*/}
-                <Slider.Root className='sliderRoot' defaultValue={[50]} max={100} step={1}>
-                    <Slider.Track className='sliderTrack'>
-                        <Slider.Range className='sliderRange' />
-                    </Slider.Track>
-                    <Slider.Thumb className='thumbSlider'>
-                        <img src={sliderIcon} alt="" />
-                    </Slider.Thumb>
-                </Slider.Root>
+                    <p className='price-text'>{`$${price.toFixed(2)}`}<span> / month</span></p>
 
-
-                <p className='price-text'>{`$${price.toFixed(2)}`}<span> / month</span></p>
-
-                <BillingInput />
+                    <BillingInput />
+                </form>
 
                 <TrialComponent />
             </div>

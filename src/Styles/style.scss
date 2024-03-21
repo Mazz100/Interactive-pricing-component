@@ -11,6 +11,7 @@ $trial-button-bg-color: hsl(227, 35%, 25%);
 $button-text-color: hsl(226, 100%, 87%);
 $discount-text-color: hsl(15, 100%, 70%);
 $discount-BG: hsl(14, 92%, 95%);
+$switch-bg-color: hsl(223, 50%, 87%);
 
 @mixin Flex($direction) {
     display: flex;
@@ -39,16 +40,18 @@ main {
 .subscription-container {
     margin-bottom: 4em;
 
-    .title {
-        text-align: center;
-        font-size: 1.5rem;
-    }
+}
 
-    p {
-        text-align: center;
-        font-weight: 600;
-        color: $text-color;
-    }
+.title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 0.5em;
+}
+
+.sign-up-text {
+    text-align: center;
+    font-weight: 700;
+    color: $text-color;
 }
 
 //===================//
@@ -58,25 +61,29 @@ main {
     border-radius: 12px;
     @include Flex(column);
     gap: 1em;
+    box-shadow: 0 12px 12px hsl(0, 0%, 92%);
 
-    .page-views-text {
-        font-weight: 700;
+
+}
+
+.page-views-text {
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    color: $text-color;
+    margin-block: 1.5em;
+}
+
+.price-text {
+    font-size: 2rem;
+    font-weight: 800;
+    text-align: center;
+    margin-block: 0.7em;
+
+    span {
         font-size: 0.875rem;
-        text-transform: uppercase;
+        font-weight: 700;
         color: $text-color;
-        margin-block: 1em;
-    }
-
-    .price-text {
-        font-size: 2rem;
-        font-weight: 800;
-
-
-        span {
-            font-size: 0.875rem;
-            font-weight: 700;
-            color: $text-color;
-        }
     }
 }
 
@@ -128,13 +135,11 @@ main {
 
 //======================//
 
-//Billing Styling Section
-.billing-container {
-    margin-bottom: 1em;
-}
-
+//Form Styling Section
 .billing-filedset {
+    @include Flex(row);
     padding: 0;
+    margin-bottom: 1em;
     border: none;
 }
 
@@ -163,6 +168,7 @@ main {
     overflow: hidden;
 }
 
+
 //Trial Styling Section
 .trial-container {
     border-top: 1px solid hsl(0, 0%, 90%);
@@ -170,31 +176,32 @@ main {
     padding: 1em;
     align-self: stretch; //Applying self align for border max possible width
 
-    .trial-list {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
+}
 
-    .list {
-        background-image: url(../assets/images/icon-check.svg);
-        background-repeat: no-repeat;
-        color: $text-color;
-        font-size: 0.875rem;
-    }
+.trial-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 
-    .list1 {
-        background-position: left 20% center;
-    }
+.list {
+    background-image: url(../assets/images/icon-check.svg);
+    background-repeat: no-repeat;
+    color: $text-color;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
 
-    .list2 {
-        background-position: left 20% center;
-    }
+.list1 {
+    background-position: left 22% center;
+}
 
-    .list3 {
-        background-position: left 25% center;
-    }
+.list2 {
+    background-position: left 20% center;
+}
 
+.list3 {
+    background-position: left 30% center;
 }
 
 .trial-button {
