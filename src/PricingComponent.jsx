@@ -12,11 +12,13 @@ function PricingComponent() {
     return (
         <>
             <div className='pricing-container'>
-                <p className="page-views-text">
-                    {`${page}K pageviews`}
-                </p>
-                
-                <form action="" name="">
+                <form className='form' action="" name="">
+                    <p className="page-views-text">
+                        {`${page}K pageviews`}
+                    </p>
+
+                    <p className='price-text'>{`$${price.toFixed(2)}`}<span> / month</span></p>
+
                     {/*Pricing Slider*/}
                     <Slider.Root className='sliderRoot'
                         defaultValue={[50]}
@@ -30,7 +32,6 @@ function PricingComponent() {
                         </Slider.Thumb>
                     </Slider.Root>
 
-                    <p className='price-text'>{`$${price.toFixed(2)}`}<span> / month</span></p>
 
                     <BillingInput />
                 </form>

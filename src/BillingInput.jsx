@@ -7,11 +7,15 @@ function BillingInput() {
             <label className="billing-label" htmlFor="Monthly">
                 Monthly Billing
             </label>
-            <div className="toggle-swtich">
-                <input className="billing-radio" type="radio" name="Billing" id="Monthly" />
-                <input className="billing-radio" type="radio" name="Billing" id="Yearly" />
 
-            </div>
+            {/*Wrapping inputs with span for styling*/}
+            <span className="toggle-wrapper">
+                <input className="billing-radio" type="radio" name="Billing" id="Monthly" defaultChecked aria-describedby="monthly toggle switch" />
+                <input className="billing-radio" type="radio" name="Billing" id="Yearly" aria-describedby="yearly toggle switch" />
+
+                {/*Switch and thumb style elements*/}
+                <span className="toggle"></span>
+            </span>
 
             <label className="billing-label" htmlFor="Yearly">
                 Yearly Billing <span className="discount-text">-25%</span>

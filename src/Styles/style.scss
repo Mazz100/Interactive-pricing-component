@@ -59,11 +59,7 @@ main {
 .pricing-container {
     background-color: white;
     border-radius: 12px;
-    @include Flex(column);
-    gap: 1em;
     box-shadow: 0 12px 12px hsl(0, 0%, 92%);
-
-
 }
 
 .page-views-text {
@@ -72,13 +68,14 @@ main {
     text-transform: uppercase;
     color: $text-color;
     margin-block: 1.5em;
+    order: -1;
 }
 
 .price-text {
     font-size: 2rem;
     font-weight: 800;
-    text-align: center;
     margin-block: 0.7em;
+
 
     span {
         font-size: 0.875rem;
@@ -98,6 +95,7 @@ main {
     touch-action: none;
     width: 300px;
     height: 20px;
+    order: -1;
 }
 
 .sliderTrack {
@@ -136,10 +134,14 @@ main {
 //======================//
 
 //Form Styling Section
+.form {
+    @include Flex(column);
+}
+
 .billing-filedset {
     @include Flex(row);
     padding: 0;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
     border: none;
 }
 
@@ -166,6 +168,54 @@ main {
     height: 1px;
     white-space: none;
     overflow: hidden;
+}
+
+//Toggle Switcher Styling
+.toggle-wrapper {
+    position: relative;
+    @include Flex(row);
+    margin-inline: 0.5em;
+}
+
+.billing-radio {
+    display: block;
+    position: relative;
+}
+
+.toggle {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $switch-bg-color;
+    width: 40px;
+    height: 20px;
+    border-radius: 32px;
+    opacity: 0.9; //Testing
+}
+
+.toggle::after {
+    position: absolute;
+    content: '';
+    top: 3px;
+    left: 3px;
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+}
+
+input:checked+.toggle {
+    background: $slider-color;
+}
+
+input:checked+.toggle:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
 }
 
 

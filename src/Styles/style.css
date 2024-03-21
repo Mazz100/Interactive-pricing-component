@@ -125,11 +125,6 @@ main {
 .pricing-container {
   background-color: white;
   border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1em;
   box-shadow: 0 12px 12px hsl(0, 0%, 92%);
 }
 
@@ -139,12 +134,12 @@ main {
   text-transform: uppercase;
   color: hsl(225, 20%, 60%);
   margin-block: 1.5em;
+  order: -1;
 }
 
 .price-text {
   font-size: 2rem;
   font-weight: 800;
-  text-align: center;
   margin-block: 0.7em;
 }
 .price-text span {
@@ -163,6 +158,7 @@ main {
   touch-action: none;
   width: 300px;
   height: 20px;
+  order: -1;
 }
 
 .sliderTrack {
@@ -196,13 +192,20 @@ main {
   cursor: pointer;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .billing-filedset {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   padding: 0;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
   border: none;
 }
 
@@ -229,6 +232,56 @@ main {
   height: 1px;
   white-space: none;
   overflow: hidden;
+}
+
+.toggle-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-inline: 0.5em;
+}
+
+.billing-radio {
+  display: block;
+  position: relative;
+}
+
+.toggle {
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsl(223, 50%, 87%);
+  width: 40px;
+  height: 20px;
+  border-radius: 32px;
+  opacity: 0.9;
+}
+
+.toggle::after {
+  position: absolute;
+  content: "";
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+input:checked + .toggle {
+  background: hsl(174, 77%, 80%);
+}
+
+input:checked + .toggle:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
 }
 
 .trial-container {
