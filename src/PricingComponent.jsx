@@ -13,17 +13,17 @@ function PricingComponent() {
         <>
             <div className='pricing-container'>
                 <form className='form' action="" name="">
+
                     <p className="page-views-text">
                         {`${page}K pageviews`}
                     </p>
 
-                    <p className='price-text'>{`$${price.toFixed(2)}`}<span> / month</span></p>
-
                     {/*Pricing Slider*/}
                     <Slider.Root className='sliderRoot'
-                        defaultValue={[50]}
-                        max={100}
-                        step={10}>
+                        defaultValue={[3]}
+                        max={5}
+                        step={1}
+                    >
                         <Slider.Track className='sliderTrack'>
                             <Slider.Range className='sliderRange' />
                         </Slider.Track>
@@ -32,6 +32,7 @@ function PricingComponent() {
                         </Slider.Thumb>
                     </Slider.Root>
 
+                    <p className='price-text'>{`$${price.toFixed(2)}`}<span> / month</span></p>
 
                     <BillingInput />
                 </form>

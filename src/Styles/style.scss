@@ -33,7 +33,7 @@ body {
 }
 
 main {
-    max-width: 21rem;
+    max-width: 23rem;
 }
 
 //Subscription Styling Section
@@ -45,12 +45,14 @@ main {
 .title {
     text-align: center;
     font-size: 1.5rem;
+    font-weight: 800;
     margin-bottom: 0.5em;
 }
 
 .sign-up-text {
     text-align: center;
     font-weight: 700;
+    font-size: 0.875rem;
     color: $text-color;
 }
 
@@ -64,11 +66,10 @@ main {
 
 .page-views-text {
     font-weight: 700;
-    font-size: 0.875rem;
+    font-size: 0.825rem;
     text-transform: uppercase;
     color: $text-color;
-    margin-block: 1.5em;
-    order: -1;
+    margin-block: 2em;
 }
 
 .price-text {
@@ -95,7 +96,6 @@ main {
     touch-action: none;
     width: 300px;
     height: 20px;
-    order: -1;
 }
 
 .sliderTrack {
@@ -136,13 +136,19 @@ main {
 //Form Styling Section
 .form {
     @include Flex(column);
+
+    border-bottom: 1px solid hsl(0, 0%, 90%);
+    text-align: center;
 }
 
 .billing-filedset {
-    @include Flex(row);
     padding: 0;
     margin-bottom: 2em;
     border: none;
+}
+
+.price-toggle {
+    @include Flex(row);
 }
 
 .billing-label {
@@ -151,13 +157,20 @@ main {
     font-size: 0.875rem;
 }
 
-.discount-text {
-    color: $discount-text-color;
+.discount-span {
+    position: relative; //Position used for ::after pseudo on desktop
     background-color: $discount-BG;
     border-radius: 16px;
     padding: 0.2em;
     padding-inline: 0.5em;
-    font-weight: 800;
+    margin-left: 0.4em;
+
+}
+
+.discount-text {
+    color: $discount-text-color;
+    font-weight: 700;
+    font-size: 0.75rem;
 }
 
 //Legend visuals hidden
@@ -178,8 +191,9 @@ main {
 }
 
 .billing-radio {
-    display: block;
+    display: inline-block;
     position: relative;
+
 }
 
 .toggle {
@@ -220,18 +234,11 @@ input:checked+.toggle:after {
 
 
 //Trial Styling Section
-.trial-container {
-    border-top: 1px solid hsl(0, 0%, 90%);
-    text-align: center;
-    padding: 1em;
-    align-self: stretch; //Applying self align for border max possible width
-
-}
-
 .trial-list {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
 .list {
@@ -242,8 +249,13 @@ input:checked+.toggle:after {
     font-size: 0.875rem;
 }
 
+.list:not(.list1) {
+    margin-top: 0.4em;
+}
+
 .list1 {
     background-position: left 22% center;
+    margin-top: 1em;
 }
 
 .list2 {
@@ -258,15 +270,115 @@ input:checked+.toggle:after {
     border: none;
     background-color: $trial-button-bg-color;
     color: $button-text-color;
-    padding: 0.7em;
+    padding: 0.6em;
     padding-inline: 2.5em;
     border-radius: 24px;
     margin-top: 1.5em;
     margin-bottom: 1em;
+    transition: color 0.2s;
+    transform: translateX(50%);
 }
 
 .trial-button:hover {
     cursor: pointer;
+    color: white;
 }
 
-//======================//
+@media (min-width: 43.75rem) {
+
+    body {
+       background-position: top 20% center;;
+    }
+
+    main {
+        max-width: 50rem;
+    }
+
+    .sign-up-desktop-row {
+        @include Flex(row);
+    }
+
+    .pricing-container {
+        display: grid;
+        place-content: center;
+        align-items: center;
+        padding: 1em;
+        gap: 1em;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        grid-template-areas:
+            "form form"
+            "lists button";
+    }
+
+  
+    .form {
+        grid-area: form;
+        //===============//
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        align-items: center;
+        grid-template-areas:
+            "pages . price"
+            "slider slider slider"
+            "billing billing billing";
+    }
+
+    .discount-text::after {
+        content: 'discount';
+        position: relative;
+        left: 3px;
+    }
+
+    .sliderRoot {
+        margin-block: 1em;
+        grid-area: slider;
+        margin: auto;
+        width: 400px;
+    }
+
+    .billing-filedset {
+        grid-area: billing;
+        margin-top: 1em;
+    }
+
+    .trial-list {
+        grid-area: lists;
+        padding-left: 0.5em;
+        padding-bottom: 1.5em;
+        text-align: left;
+    }
+
+    .list {
+        padding-inline: 1em;
+
+    }
+
+    .list1 {
+        margin-top: 0;
+    }
+
+    .list1,
+    .list2,
+    .list3 {
+        background-position: left;
+    }
+
+    .trial-button {
+        grid-area: button;
+        transform: translateX(0);
+        margin-block: 0;
+    }
+
+    .price-text {
+        margin: 0;
+        grid-area: price;
+    }
+
+    .page-views-text {
+        margin: 0;
+        grid-area: pages;
+    }
+
+}
