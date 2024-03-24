@@ -76,7 +76,8 @@ main {
     font-size: 2rem;
     font-weight: 800;
     margin-block: 0.7em;
-
+    @include Flex(row);
+    gap: 0.2em;
 
     span {
         font-size: 0.875rem;
@@ -284,10 +285,11 @@ input:checked+.toggle:after {
     color: white;
 }
 
-@media (min-width: 43.75rem) {
+@media (min-width: 50rem) {
 
     body {
-       background-position: top 20% center;;
+        background-position: top 20% center;
+        ;
     }
 
     main {
@@ -311,7 +313,7 @@ input:checked+.toggle:after {
             "lists button";
     }
 
-  
+
     .form {
         grid-area: form;
         //===============//
