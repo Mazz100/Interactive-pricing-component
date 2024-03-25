@@ -92,18 +92,26 @@ textarea:not([rows]) {
 
 body {
   font-family: Manrope, Arial, Helvetica, sans-serif;
+  background-image: url(../assets/images/pattern-circles.svg), url(../assets/images/bg-pattern.svg);
+  background-repeat: no-repeat;
+  background-position: top 15% center, top;
+}
+
+#root {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: hsl(222, 87%, 97%);
-  background-image: url(../assets/images/pattern-circles.svg);
-  background-repeat: no-repeat;
-  background-position: top 15% center;
 }
 
 main {
   max-width: 23rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 }
 
 .subscription-container {
@@ -181,6 +189,10 @@ main {
   height: 100%;
 }
 
+.sliderRange[data-disabled] {
+  background-color: lightgray;
+}
+
 .thumbSlider {
   display: grid;
   place-content: center;
@@ -197,6 +209,12 @@ main {
   cursor: pointer;
 }
 
+.thumbSlider[data-disabled] {
+  background-color: hsl(0, 0%, 47%);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -204,6 +222,7 @@ main {
   align-items: center;
   border-bottom: 1px solid hsl(0, 0%, 90%);
   text-align: center;
+  padding: 1em;
 }
 
 .billing-filedset {
@@ -342,7 +361,7 @@ input:checked + .toggle:after {
   margin-top: 1.5em;
   margin-bottom: 1em;
   transition: color 0.2s;
-  transform: translateX(50%);
+  margin-left: 83px;
 }
 
 .trial-button:hover {
@@ -350,9 +369,29 @@ input:checked + .toggle:after {
   color: white;
 }
 
-@media (min-width: 50rem) {
+.attribution {
+  text-align: center;
+  font-size: 0.75rem;
+  padding: 0.6em;
+  text-wrap: balance;
+  display: block;
+  width: 100%;
+  background-color: hsl(222, 87%, 97%);
+}
+.attribution a {
+  color: hsl(214, 100%, 58%);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+@media (min-width: 48rem) {
   body {
-    background-position: top 20% center;
+    background-position: top 20% center, top;
+    background-size: auto, contain;
   }
   main {
     max-width: 50rem;
@@ -375,6 +414,7 @@ input:checked + .toggle:after {
   }
   .form {
     grid-area: form;
+    padding: 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -387,10 +427,10 @@ input:checked + .toggle:after {
     left: 3px;
   }
   .sliderRoot {
-    margin-block: 1em;
     grid-area: slider;
     margin: auto;
     width: 400px;
+    margin-block: 1em;
   }
   .billing-filedset {
     grid-area: billing;
@@ -417,6 +457,7 @@ input:checked + .toggle:after {
     grid-area: button;
     transform: translateX(0);
     margin-block: 0;
+    margin-left: 0;
   }
   .price-text {
     margin: 0;

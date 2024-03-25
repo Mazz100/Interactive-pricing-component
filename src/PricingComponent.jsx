@@ -38,7 +38,6 @@ function PricingComponent() {
         setPage(newValue);
     }
 
-    console.log(page);
 
     return (
         <>
@@ -57,7 +56,7 @@ function PricingComponent() {
                             page === '50K' ? 25 :
                                 page === '100K' ? 50 :
                                     page === '500K' ? 75 : 100]}
-                        step={10}
+
                     >
                         <Slider.Track className='sliderTrack'>
                             <Slider.Range className='sliderRange' />
