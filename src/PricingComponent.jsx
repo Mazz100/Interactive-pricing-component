@@ -6,8 +6,23 @@ import * as Slider from '@radix-ui/react-slider'
 
 function PricingComponent() {
     const [page, setPage] = useState('100K');
-    const [price, setPrice] = useState(16);
+    const [price, setPrice] = useState(0);
+    const [discount, setDiscount] = useState(false);
 
+    const priceTable = {
+        '10K': 8,
+        '50K': 12,
+        '100K': 16,
+        '500K': 24,
+    }
+
+    const pages = {
+        '10K': 0,
+        '50K': 25,
+        '100K': 50,
+        '500K': 75,
+        '1M': 100,
+    }
 
 
     function handlePage(value) {
@@ -16,27 +31,56 @@ function PricingComponent() {
 
         if (value <= 25) {
             newValue = '10K';
-            setPrice(8);
+
         }
         else if (value <= 50) {
             newValue = '50K';
-            setPrice(12);
+
         }
         else if (value <= 75) {
             newValue = '100K';
-            setPrice(16);
+
         }
         else if (value <= 90) {
             newValue = '500K';
-            setPrice(24);
+
         }
         else {
             newValue = '1M';
-            setPrice(36);
+
         }
 
         setPage(newValue);
     }
+
+
+    useEffect(() => {
+        const calculatedPrice = priceTable[page] || 36;
+        setPrice(calculatedPrice);
+
+        /* Old approach
+        //Discount calculation
+        const discountPercentage = 25
+        const discountPrice = price - (price * discountPercentage / 100);
+        
+         if (discount) {
+            setPrice(discountPrice);
+        }
+
+        - Got an error on consistent decrease of price until reaching zero.
+        - Fixed by creating a fixed object literal values and access each one with page as index
+        */
+
+        const discountPercentage = 25;
+        const calculatedDiscount = calculatedPrice - (calculatedPrice * discountPercentage / 100) //Calculating price with corresponding page view index 
+
+        if (discount) {
+            setPrice(calculatedDiscount);
+        }
+
+        console.log(price);
+        console.log(discount);
+    }, [page, discount])
 
 
     return (
@@ -51,11 +95,9 @@ function PricingComponent() {
                     {/*Pricing Slider*/}
                     <Slider.Root className='sliderRoot'
                         max={100}
+                        name='pricing-slider'
                         onValueChange={handlePage}
-                        value={[page === '10K' ? 0 :
-                            page === '50K' ? 25 :
-                                page === '100K' ? 50 :
-                                    page === '500K' ? 75 : 100]}
+                        value={[pages[page]]}
 
                     >
                         <Slider.Track className='sliderTrack'>
@@ -68,7 +110,7 @@ function PricingComponent() {
 
                     <p className='price-text'>{`$${price.toFixed(2)}`}<span> / month</span></p>
 
-                    <BillingInput />
+                    <BillingInput discountState={setDiscount} />
                 </form>
 
                 <TrialComponent />
