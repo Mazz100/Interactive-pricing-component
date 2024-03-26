@@ -94,7 +94,7 @@ body {
   font-family: Manrope, Arial, Helvetica, sans-serif;
   background-image: url(../assets/images/pattern-circles.svg), url(../assets/images/bg-pattern.svg);
   background-repeat: no-repeat;
-  background-position: top 15% center, top;
+  background-position: top 10% center, top;
 }
 
 #root {
@@ -280,7 +280,7 @@ main {
 
 .billing-radio {
   position: relative;
-  visibility: hidden;
+  opacity: 0;
 }
 
 .toggle {
@@ -292,7 +292,6 @@ main {
   width: 40px;
   height: 20px;
   border-radius: 32px;
-  opacity: 0.8;
 }
 
 .toggle::after {
@@ -314,6 +313,11 @@ input:checked + .toggle {
 input:checked + .toggle:after {
   left: calc(100% - 3px);
   transform: translateX(-100%);
+}
+
+.toggle:hover,
+.toggle:focus {
+  background-color: hsl(174, 77%, 80%);
 }
 
 .billing-label:hover {
@@ -405,11 +409,12 @@ a:hover {
     align-items: center;
   }
   .pricing-container {
+    min-width: 36rem;
     display: grid;
     place-content: center;
     align-items: center;
     padding: 1em;
-    gap: 1em;
+    gap: 1.5em;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 1fr);
     grid-template-areas: "form form" "lists button";

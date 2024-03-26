@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 function BillingInput({ discountState }) {
     const [choosePlan, setChoosePlan] = useState('Monthly');
 
-    console.log(`Plan is: ${choosePlan}`);
+
     function handlePlanChange(event) {
         setChoosePlan(event.target.value);
     }
@@ -36,7 +36,9 @@ function BillingInput({ discountState }) {
                         value="Monthly"
                         onChange={handlePlanChange}
                         checked={choosePlan === "Monthly"}
-                        aria-describedby="monthly toggle switch" />
+                        aria-checked={choosePlan === 'Monthly'}
+                        aria-describedby="monthly toggle switch" 
+                        />
 
                     <input className="billing-radio" type="radio"
                         name="Billing"
@@ -44,6 +46,7 @@ function BillingInput({ discountState }) {
                         value="Yearly"
                         onChange={handlePlanChange}
                         checked={choosePlan === "Yearly"}
+                        aria-checked={choosePlan === 'Yearly'}
                         aria-describedby="yearly toggle switch" />
 
                     {/*Switch and thumb style elements*/}
@@ -60,7 +63,6 @@ function BillingInput({ discountState }) {
 
                             const toggleRadio = document.getElementById(radioId);
                             toggleRadio.click(); //Calling click method targetting each radio
-                            console.log(`ID is: ${radioId}`);
 
                         }}></span>
                 </span>

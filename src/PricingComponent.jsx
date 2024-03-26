@@ -16,7 +16,7 @@ function PricingComponent() {
         '500K': 24,
     }
 
-    const pages = {
+    const pageValue = {
         '10K': 0,
         '50K': 25,
         '100K': 50,
@@ -78,7 +78,7 @@ function PricingComponent() {
             setPrice(calculatedDiscount);
         }
 
-    
+
 
     }, [page, discount, price])
 
@@ -97,9 +97,9 @@ function PricingComponent() {
                         max={100}
                         name='pricing-slider'
                         onValueChange={handlePage}
-                        value={[pages[page]]}
-
-                    >
+                        value={[pageValue[page]]}
+                        aria-valuenow={page}
+                    >   
                         <Slider.Track className='sliderTrack'>
                             <Slider.Range className='sliderRange' />
                         </Slider.Track>
@@ -108,7 +108,10 @@ function PricingComponent() {
                         </Slider.Thumb>
                     </Slider.Root>
 
-                    <p className='price-text'>{`$${price.toFixed(2)}`}<span> / month</span></p>
+                    <p className='price-text'>
+                        {`$${price.toFixed(2)}`}
+                        <span> / month</span>
+                    </p>
 
                     <BillingInput discountState={setDiscount} />
                 </form>
