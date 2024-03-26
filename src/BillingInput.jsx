@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 function BillingInput({ discountState }) {
     const [choosePlan, setChoosePlan] = useState('Monthly');
 
-
+    console.log(`Plan is: ${choosePlan}`);
     function handlePlanChange(event) {
         setChoosePlan(event.target.value);
     }
@@ -17,8 +17,6 @@ function BillingInput({ discountState }) {
         else {
             discountState(false);
         }
-
-        console.log(choosePlan);
 
     }, [choosePlan])
 
@@ -37,7 +35,7 @@ function BillingInput({ discountState }) {
                         id="Monthly"
                         value="Monthly"
                         onChange={handlePlanChange}
-                        checked={choosePlan == "Monthly" ? true : false}
+                        checked={choosePlan === "Monthly"}
                         aria-describedby="monthly toggle switch" />
 
                     <input className="billing-radio" type="radio"
@@ -45,11 +43,26 @@ function BillingInput({ discountState }) {
                         id="Yearly"
                         value="Yearly"
                         onChange={handlePlanChange}
-                        checked={choosePlan == "Yearly" ? true : false}
+                        checked={choosePlan === "Yearly"}
                         aria-describedby="yearly toggle switch" />
 
                     {/*Switch and thumb style elements*/}
-                    <span className="toggle"></span>
+                    <span className="toggle"
+                        onClick={() => {
+                            let radioId;
+
+                            if (choosePlan === 'Monthly') {
+                                radioId = 'Yearly';
+                            }
+                            else if (choosePlan === 'Yearly') {
+                                radioId = 'Monthly';
+                            }
+
+                            const toggleRadio = document.getElementById(radioId);
+                            toggleRadio.click(); //Calling click method targetting each radio
+                            console.log(`ID is: ${radioId}`);
+
+                        }}></span>
                 </span>
 
                 <label className="billing-label" htmlFor="Yearly">

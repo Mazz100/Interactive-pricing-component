@@ -68,7 +68,7 @@ main {
 .pricing-container {
     background-color: white;
     border-radius: 12px;
-    box-shadow: 0 12px 12px hsl(0, 0%, 92%);
+    box-shadow: 0 12px 12px hsla(0, 0%, 40%, 0.153);
 }
 
 .page-views-text {
@@ -183,7 +183,7 @@ main {
     padding: 0.2em;
     padding-inline: 0.5em;
     margin-left: 0.4em;
-  
+
 }
 
 .discount-text {
@@ -210,9 +210,8 @@ main {
 }
 
 .billing-radio {
-    display: inline-block;
     position: relative;
-
+    visibility: hidden;
 }
 
 .toggle {
@@ -220,14 +219,11 @@ main {
     display: block;
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     background-color: $switch-bg-color;
     width: 40px;
     height: 20px;
     border-radius: 32px;
-    opacity: 0.9; //Testing
+    opacity: 0.8;
 }
 
 .toggle::after {

@@ -78,9 +78,9 @@ function PricingComponent() {
             setPrice(calculatedDiscount);
         }
 
-        console.log(price);
-        console.log(discount);
-    }, [page, discount])
+    
+
+    }, [page, discount, price])
 
 
     return (
