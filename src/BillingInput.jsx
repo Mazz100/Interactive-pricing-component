@@ -10,6 +10,12 @@ function BillingInput({ discountState }) {
         setChoosePlan(event.target.value);
     }
 
+    function handleRadioToggle() {
+        const newPlan = choosePlan === 'Monthly' ? 'Yearly' : 'Monthly';
+        setChoosePlan(newPlan);
+        console.log(newPlan);
+    }
+
     useEffect(() => {
         if (choosePlan === 'Yearly') {
             discountState(true);
@@ -37,8 +43,7 @@ function BillingInput({ discountState }) {
                         onChange={handlePlanChange}
                         checked={choosePlan === "Monthly"}
                         aria-checked={choosePlan === 'Monthly'}
-                        aria-describedby="monthly toggle switch" 
-                        />
+                    />
 
                     <input className="billing-radio" type="radio"
                         name="Billing"
@@ -46,35 +51,21 @@ function BillingInput({ discountState }) {
                         value="Yearly"
                         onChange={handlePlanChange}
                         checked={choosePlan === "Yearly"}
-                        aria-checked={choosePlan === 'Yearly'}
-                        aria-describedby="yearly toggle switch" />
+                        aria-checked={choosePlan === 'Yearly'} />
 
-                    {/*Switch and thumb style elements*/}
-                    <span className="toggle"
-                        onClick={() => {
-                            let radioId;
-
-                            if (choosePlan === 'Monthly') {
-                                radioId = 'Yearly';
-                            }
-                            else if (choosePlan === 'Yearly') {
-                                radioId = 'Monthly';
-                            }
-
-                            const toggleRadio = document.getElementById(radioId);
-                            toggleRadio.click(); //Calling click method targetting each radio
-
-                        }}></span>
+                    {/*Switch and thumb style element*/}
+                    <span className="toggle" onClick={handleRadioToggle}></span>
                 </span>
 
                 <label className="billing-label" htmlFor="Yearly">
                     Yearly Billing
                     <span className="discount-span">
                         <span className="discount-text">-25%</span>
+
                     </span>
                 </label>
             </div>
-        </fieldset>
+        </fieldset >
     );
 }
 

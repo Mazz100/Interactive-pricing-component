@@ -86,10 +86,10 @@ function PricingComponent() {
     return (
         <>
             <div className='pricing-container'>
-                <form className='form' action="" name="">
+                <form className='form'>
 
                     <p className="page-views-text">
-                        {page} pageviews
+                        {`${page} pageviews`}
                     </p>
 
                     {/*Pricing Slider*/}
@@ -98,12 +98,13 @@ function PricingComponent() {
                         name='pricing-slider'
                         onValueChange={handlePage}
                         value={[pageValue[page]]}
-                        aria-valuenow={page}
+                        aria-valuenow={pageValue[page]}
+                        step={20}
                     >   
                         <Slider.Track className='sliderTrack'>
                             <Slider.Range className='sliderRange' />
                         </Slider.Track>
-                        <Slider.Thumb className='thumbSlider'>
+                        <Slider.Thumb className='thumbSlider' aria-labelledby='Pricing thumb slider'>
                             <img src={sliderIcon} alt="" />
                         </Slider.Thumb>
                     </Slider.Root>

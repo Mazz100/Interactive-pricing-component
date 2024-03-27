@@ -121,7 +121,7 @@ main {
 .title {
   text-align: center;
   font-size: 1.5rem;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 0.5em;
 }
 
@@ -304,10 +304,6 @@ main {
   background: #fff;
   border-radius: 90px;
   transition: 0.3s;
-}
-
-input:checked + .toggle {
-  background: hsl(174, 77%, 80%);
 }
 
 input:checked + .toggle:after {
