@@ -1,5 +1,5 @@
-@use 'reset';
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@use "reset";
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
 
 //Variables
 $main-bg-color: hsl(222, 87%, 97%);
@@ -9,423 +9,440 @@ $empty-slider-color: hsl(224, 65%, 95%);
 $slider-icon-bg: hsl(174, 86%, 45%);
 $trial-button-bg-color: hsl(227, 35%, 25%);
 $button-text-color: hsl(226, 100%, 87%);
-$discount-text-color: hsl(15, 100%, 70%);
+$discount-text-color: hsl(15, 100%, 28%);
 $discount-BG: hsl(14, 92%, 95%);
 $switch-bg-color: hsl(223, 50%, 87%);
 
 @mixin Flex($direction) {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
 }
 
 body {
-    font-family: Manrope, Arial, Helvetica, sans-serif;
+  font-family: Manrope, Arial, Helvetica, sans-serif;
 
-
-    //Background properties
-    background-image: url(../assets/images/pattern-circles.svg), url(../assets/images/bg-pattern.svg);
-    background-repeat: no-repeat;
-    background-position: top 10% center, top;
-
+  //Background properties
+  background-image: url(../assets/images/pattern-circles.svg),
+    url(../assets/images/bg-pattern.svg);
+  background-repeat: no-repeat;
+  background-position: top 10% center, top;
 }
 
 //Applying flexbox on root element for
 #root {
-    min-height: 100vh;
-    @include Flex(column);
+  min-height: 100vh;
+  @include Flex(column);
 }
 
 main {
-    max-width: 23rem;
-    @include Flex(column);
-    flex: 1;
+  max-width: 23rem;
+  @include Flex(column);
+  flex: 1;
 }
 
 //Subscription Styling Section
 .subscription-container {
-    margin-bottom: 4em;
-
+  margin-bottom: 4em;
 }
 
 .title {
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5em;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5em;
 }
 
 .sign-up-text {
-    text-align: center;
-    font-weight: 700;
-    font-size: 0.875rem;
-    color: $text-color;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: $text-color;
 }
 
 //===================//
 
 .pricing-container {
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 12px 12px hsla(0, 0%, 40%, 0.153);
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 12px 12px hsla(0, 0%, 40%, 0.153);
 }
 
 .page-views-text {
-    font-weight: 700;
-    font-size: 0.825rem;
-    text-transform: uppercase;
-    color: $text-color;
-    margin-block: 2em;
+  font-weight: 700;
+  font-size: 0.825rem;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-block: 2em;
 }
 
 .price-text {
-    font-size: 2rem;
-    font-weight: 800;
-    margin-block: 0.7em;
-    @include Flex(row);
-    gap: 0.2em;
+  font-size: 2rem;
+  font-weight: 800;
+  margin-block: 0.7em;
+  @include Flex(row);
+  gap: 0.2em;
 
-    span {
-        font-size: 0.875rem;
-        font-weight: 700;
-        color: $text-color;
-    }
+  span {
+    font-size: 0.875rem;
+    font-weight: 700;
+    opacity: 0.7;
+  }
 }
 
 //=========================//
 
 //Slider Styling Section
 .sliderRoot {
-    position: relative;
-    display: flex;
-    align-items: center;
-    user-select: none;
-    touch-action: none;
-    width: 300px;
-    height: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  touch-action: none;
+  width: 300px;
+  height: 20px;
 }
 
 .sliderTrack {
-    background-color: $empty-slider-color;
-    position: relative;
-    flex-grow: 1;
-    border-radius: 9999px;
-    height: 7px;
+  background-color: $empty-slider-color;
+  position: relative;
+  flex-grow: 1;
+  border-radius: 9999px;
+  height: 7px;
 }
 
 .sliderRange {
-    position: absolute;
-    background-color: $slider-color;
-    border-radius: 9999px;
-    height: 100%;
+  position: absolute;
+  background-color: $slider-color;
+  border-radius: 9999px;
+  height: 100%;
 }
 
 .sliderRange[data-disabled] {
-    background-color: lightgray;
+  background-color: lightgray;
 }
 
-
 .thumbSlider {
-    display: grid;
-    place-content: center;
-    width: 40px;
-    height: 40px;
-    background-color: $slider-icon-bg;
-    box-shadow: 0 4px 15px $slider-icon-bg;
-    border-radius: 50%;
+  display: grid;
+  place-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: $slider-icon-bg;
+  box-shadow: 0 4px 15px $slider-icon-bg;
+  border-radius: 50%;
 }
 
 .thumbSlider:hover,
 .thumbSlider:focus {
-    outline: none;
-    cursor: pointer;
-
+  outline: none;
+  cursor: pointer;
 }
 
 .thumbSlider[data-disabled] {
-    background-color: hsl(0, 0%, 47%);
-    cursor: not-allowed;
-    box-shadow: none;
+  background-color: hsl(0, 0%, 47%);
+  cursor: not-allowed;
+  box-shadow: none;
 }
-
 
 //======================//
 
 //Form Styling Section
 .form {
-    @include Flex(column);
-    border-bottom: 1px solid hsl(0, 0%, 90%);
-    text-align: center;
-    padding: 1em;
+  @include Flex(column);
+  border-bottom: 1px solid hsl(0, 0%, 90%);
+  text-align: center;
+  padding: 1em;
 }
 
 .billing-filedset {
-    padding: 0;
-    margin-bottom: 2em;
-    border: none;
+  padding: 0;
+  margin-bottom: 2em;
+  border: none;
 }
 
 .price-toggle {
-    @include Flex(row);
+  @include Flex(row);
 }
 
 .billing-label {
-    color: $text-color;
-    font-weight: 600;
-    font-size: 0.875rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.billing-label:hover {
+  cursor: pointer;
 }
 
 .discount-span {
-    position: relative; //Position used for ::after pseudo on desktop
-    background-color: $discount-BG;
-    border-radius: 16px;
-    padding: 0.2em;
-    padding-inline: 0.5em;
-    margin-left: 0.4em;
-
+  position: relative; //Position used for ::after pseudo on desktop
+  background-color: $discount-BG;
+  border-radius: 16px;
+  padding: 0.2em;
+  padding-inline: 0.8rem;
+  margin-left: 0.4em;
 }
 
 .discount-text {
-    color: $discount-text-color;
-    font-weight: 700;
-    font-size: 0.75rem;
+  color: $discount-text-color;
+  font-weight: 700;
+  font-size: 0.75rem;
 }
 
 //Legend visuals hidden
 .visually-hidden {
-    position: absolute;
-    clip-path: (0 0 0 0);
-    width: 1px;
-    height: 1px;
-    white-space: none;
-    overflow: hidden;
+  position: absolute;
+  clip-path: (0 0 0 0);
+  width: 1px;
+  height: 1px;
+  white-space: none;
+  overflow: hidden;
 }
 
 //Toggle Switcher Styling
 .toggle-wrapper {
-    position: relative;
-    @include Flex(row);
-    margin-inline: 0.5em;
+  position: relative;
+  @include Flex(row);
+  margin-inline: 0.5em;
+  vertical-align: middle;
+  width: 2rem;
+  height: 1rem;
 }
 
 .billing-radio {
-    position: relative;
-    opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  opacity: 0;
+  margin: 0;
+  z-index: 1;
+  display: inline-block;
+  cursor: pointer;
+
+  &:focus-visible ~ .toggle {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem $slider-color;
+  }
+}
+
+.toggle-background {
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
+  background-color: $switch-bg-color;
+  width: 100%;
+  height: 100%;
+  border-radius: 32px;
+  transition: background-color 0.2s ease-in;
+}
+
+.billing-radio:hover ~ .toggle-background {
+  background-color: $slider-color;
 }
 
 .toggle {
-    cursor: pointer;
-    display: block;
-    position: absolute;
-    top: 0;
-    background-color: $switch-bg-color;
-    width: 40px;
-    height: 20px;
-    border-radius: 32px;
-
+  position: absolute;
+  cursor: pointer;
+  display: inline-block;
+  bottom: 2px;
+  left: 2px;
+  right: 100%;
+  height: 0.8rem;
+  width: 0.8rem;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: all 0.2s ease-out;
 }
 
-.toggle::after {
-    position: absolute;
-    content: '';
-    top: 3px;
-    left: 3px;
-    width: 14px;
-    height: 14px;
-    background: #fff;
-    border-radius: 90px;
-    transition: 0.3s;
+#Yearly:checked ~ .toggle {
+  right: 0;
+  left: 50%;
 }
-
-input:checked+.toggle:after {
-    left: calc(100% - 3px);
-    transform: translateX(-100%);
-}
-
-.toggle:hover,
-.toggle:focus {
-    background-color: $slider-color;
-}
-
-.billing-label:hover {
-    cursor: pointer;
-    color: #000;
-}
-
 
 //Trial Styling Section
 .trial-list {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
 .list {
-    background-image: url(../assets/images/icon-check.svg);
-    background-repeat: no-repeat;
-    color: $text-color;
-    font-weight: 600;
-    font-size: 0.875rem;
+  background-image: url(../assets/images/icon-check.svg);
+  background-repeat: no-repeat;
+  color: $text-color;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+//for screen readers
+.visually-hidden-list {
+  position: absolute;
+  clip-path: (0 0 0 0);
+  width: 1px;
+  height: 1px;
+  white-space: none;
+  overflow: hidden;
 }
 
 .list:not(.list1) {
-    margin-top: 0.4em;
+  margin-top: 0.4em;
 }
 
 .list1 {
-    background-position: left 22% center;
-    margin-top: 1em;
+  background-position: left 22% center;
+  margin-top: 1em;
 }
 
 .list2 {
-    background-position: left 20% center;
+  background-position: left 20% center;
 }
 
 .list3 {
-    background-position: left 30% center;
+  background-position: left 30% center;
 }
 
 .trial-button {
-    border: none;
-    background-color: $trial-button-bg-color;
-    color: $button-text-color;
-    padding: 0.6em;
-    padding-inline: 2.5em;
-    border-radius: 24px;
-    margin-top: 1.5em;
-    margin-bottom: 1em;
-    transition: color 0.2s;
-    margin-left: calc(332px / 4);
+  border: none;
+  background-color: $trial-button-bg-color;
+  color: $button-text-color;
+  padding: 0.6em;
+  padding-inline: 2.5em;
+  border-radius: 24px;
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+  transition: color 0.2s;
+  margin-left: calc(332px / 4);
 }
 
 .trial-button:hover {
-    cursor: pointer;
-    color: white;
+  cursor: pointer;
+  color: white;
 }
 
 //Footer
 .attribution {
-    text-align: center;
-    font-size: 0.75rem;
-    padding: 0.6em;
-    text-wrap: balance;
+  text-align: center;
+  font-size: 0.825rem;
+  padding: 0.8rem;
+  text-wrap: balance;
 
-    display: block;
-    width: 100%;
-    background-color: $main-bg-color;
+  display: block;
+  width: 100%;
+  background-color: $main-bg-color;
 
-    a {
-        color: hsl(214, 100%, 58%);
-        text-decoration: none;
-    }
+  a {
+    color: #0300ad;
+    text-decoration: none;
+  }
 }
 
 a:hover {
-    text-decoration: underline;
-    font-weight: 700;
+  text-decoration: underline;
+  font-weight: 700;
 }
 
 @media (min-width: 48rem) {
+  body {
+    background-position: top 20% center, top;
+    background-size: auto, contain;
+  }
 
-    body {
-        background-position: top 20% center, top;
-        background-size: auto, contain;
-    }
+  main {
+    max-width: 50rem;
+  }
 
-    main {
-        max-width: 50rem;
+  .sign-up-desktop-row {
+    @include Flex(row);
+  }
 
-    }
+  .pricing-container {
+    min-width: 36rem; //Constraint content width
+    display: grid;
+    place-content: center;
+    align-items: center;
+    padding: 1em;
+    gap: 1.5em;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-areas:
+      "form form"
+      "lists button";
+  }
 
-    .sign-up-desktop-row {
-        @include Flex(row);
-    }
+  .form {
+    grid-area: form;
+    padding: 0; //Removing padding on Desktop for pricing container control it with Grid
+    //===============//
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    align-items: center;
+    grid-template-areas:
+      "pages . price"
+      "slider slider slider"
+      "billing billing billing";
+  }
 
-    .pricing-container {
-        min-width: 36rem; //Constraint content width
-        display: grid;
-        place-content: center;
-        align-items: center;
-        padding: 1em;
-        gap: 1.5em;
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(1, 1fr);
-        grid-template-areas:
-            "form form"
-            "lists button";
-    }
+  .discount-text::after {
+    content: "discount";
+    position: relative;
+    left: 3px;
+  }
 
-    .form {
-        grid-area: form;
-        padding: 0; //Removing padding on Desktop for pricing container control it with Grid
-        //===============//
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-        align-items: center;
-        grid-template-areas:
-            "pages . price"
-            "slider slider slider"
-            "billing billing billing";
-    }
+  .sliderRoot {
+    grid-area: slider;
+    margin: auto;
+    width: 400px;
+    margin-block: 1em;
+  }
 
-    .discount-text::after {
-        content: 'discount';
-        position: relative;
-        left: 3px;
-    }
+  .billing-filedset {
+    grid-area: billing;
+    margin-top: 1em;
+  }
 
-    .sliderRoot {
-        grid-area: slider;
-        margin: auto;
-        width: 400px;
-        margin-block: 1em;
-    }
+  .trial-list {
+    grid-area: lists;
+    padding-left: 0.5em;
+    padding-bottom: 1.5em;
+    text-align: left;
+  }
 
-    .billing-filedset {
-        grid-area: billing;
-        margin-top: 1em;
-    }
+  .list {
+    padding-inline: 1em;
+  }
 
-    .trial-list {
-        grid-area: lists;
-        padding-left: 0.5em;
-        padding-bottom: 1.5em;
-        text-align: left;
-    }
+  .list1 {
+    margin-top: 0;
+  }
 
-    .list {
-        padding-inline: 1em;
+  .list1,
+  .list2,
+  .list3 {
+    background-position: left;
+  }
 
-    }
+  .trial-button {
+    grid-area: button;
+    transform: translateX(0);
+    margin-block: 0;
+    margin-left: 0;
+  }
 
-    .list1 {
-        margin-top: 0;
-    }
+  .price-text {
+    margin: 0;
+    grid-area: price;
+  }
 
-    .list1,
-    .list2,
-    .list3 {
-        background-position: left;
-    }
-
-    .trial-button {
-        grid-area: button;
-        transform: translateX(0);
-        margin-block: 0;
-        margin-left: 0;
-    }
-
-    .price-text {
-        margin: 0;
-        grid-area: price;
-    }
-
-    .page-views-text {
-        margin: 0;
-        grid-area: pages;
-    }
-
+  .page-views-text {
+    margin: 0;
+    grid-area: pages;
+  }
 }

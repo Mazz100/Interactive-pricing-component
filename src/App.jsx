@@ -1,10 +1,7 @@
-import Subscription from "./Subscription"
+import Subscription from "./Subscription";
 import PricingComponent from "./PricingComponent";
 
-
 function App() {
-
-
   return (
     <>
       <main>
@@ -13,14 +10,16 @@ function App() {
       </main>
 
       <footer className="attribution">
-
-        <p>Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-          Coded by <a href="#">Mazen Hassan</a>.
+        <p>
+          Challenge by{" "}
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
+            Frontend Mentor
+          </a>
+          . Coded by <a href="#">Mazen Hassan</a>.
         </p>
-
       </footer>
     </>
   );
 }
 
-export default App
+export default App;
