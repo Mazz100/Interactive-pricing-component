@@ -9,7 +9,7 @@ function PricingComponent() {
   const [price, setPrice] = useState(0);
   const [discount, setDiscount] = useState(false);
 
-  const priceTable = {
+  const priceValue = {
     "10K": 8,
     "50K": 12,
     "100K": 16,
@@ -18,23 +18,23 @@ function PricingComponent() {
 
   const pageValue = {
     "10K": 0,
-    "50K": 25,
-    "100K": 50,
-    "500K": 75,
-    "1M": 100,
+    "50K": 1,
+    "100K": 2,
+    "500K": 3,
+    "1M": 4,
   };
 
   function handlePage(value) {
     //Radix slider onValueChange by default recieves the slider value directly
     let newValue;
 
-    if (value <= 25) {
+    if (value <= 0) {
       newValue = "10K";
-    } else if (value <= 50) {
+    } else if (value <= 1) {
       newValue = "50K";
-    } else if (value <= 75) {
+    } else if (value <= 2) {
       newValue = "100K";
-    } else if (value <= 90) {
+    } else if (value <= 3) {
       newValue = "500K";
     } else {
       newValue = "1M";
@@ -44,7 +44,7 @@ function PricingComponent() {
   }
 
   useEffect(() => {
-    const calculatedPrice = priceTable[page] || 36;
+    const calculatedPrice = priceValue[page] || 36;
     setPrice(calculatedPrice);
 
     const discountPercentage = 25;
@@ -64,17 +64,18 @@ function PricingComponent() {
 
           {/*Pricing Slider*/}
           <Slider.Root
-            className="sliderRoot"
-            max={100}
+            className="slider-root"
+            max={4}
             name="pricing-slider"
             onValueChange={handlePage}
             value={[pageValue[page]]}
-            step={20}
+            step={1}
+            dir="ltr"
           >
-            <Slider.Track className="sliderTrack">
-              <Slider.Range className="sliderRange" />
+            <Slider.Track className="slider-track">
+              <Slider.Range className="slider-range" />
             </Slider.Track>
-            <Slider.Thumb className="thumbSlider" aria-label="Pricing thumb">
+            <Slider.Thumb className="slider-thumb" aria-label="Pricing thumb">
               <img src={sliderIcon} alt="" />
             </Slider.Thumb>
           </Slider.Root>

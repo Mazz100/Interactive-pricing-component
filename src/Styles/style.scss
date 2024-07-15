@@ -94,7 +94,7 @@ main {
 //=========================//
 
 //Slider Styling Section
-.sliderRoot {
+.slider-root {
   position: relative;
   display: flex;
   align-items: center;
@@ -104,7 +104,7 @@ main {
   height: 20px;
 }
 
-.sliderTrack {
+.slider-track {
   background-color: $empty-slider-color;
   position: relative;
   flex-grow: 1;
@@ -112,18 +112,19 @@ main {
   height: 7px;
 }
 
-.sliderRange {
+.slider-range {
   position: absolute;
   background-color: $slider-color;
   border-radius: 9999px;
   height: 100%;
+  transition: all 0.2s ease-out;
 }
 
-.sliderRange[data-disabled] {
+.slider-range[data-disabled] {
   background-color: lightgray;
 }
 
-.thumbSlider {
+.slider-thumb {
   display: grid;
   place-content: center;
   width: 40px;
@@ -131,15 +132,19 @@ main {
   background-color: $slider-icon-bg;
   box-shadow: 0 4px 15px $slider-icon-bg;
   border-radius: 50%;
+  transition: all 0.1s ease-out;
 }
 
-.thumbSlider:hover,
-.thumbSlider:focus {
-  outline: none;
+.slider-thumb:hover {
   cursor: pointer;
 }
 
-.thumbSlider[data-disabled] {
+.slider-thumb:focus-visible {
+  outline: 3px solid $slider-icon-bg;
+  outline-offset: 5px;
+}
+
+.slider-thumb[data-disabled] {
   background-color: hsl(0, 0%, 47%);
   cursor: not-allowed;
   box-shadow: none;
@@ -319,11 +324,17 @@ main {
   margin-bottom: 1em;
   transition: color 0.2s;
   margin-left: calc(332px / 4);
+  transition: all 0.2s ease-out;
 }
 
 .trial-button:hover {
   cursor: pointer;
   color: white;
+}
+
+.trial-button:focus-visible {
+  outline: 2px solid $trial-button-bg-color;
+  outline-offset: 3px;
 }
 
 //Footer
@@ -396,7 +407,7 @@ a:hover {
     left: 3px;
   }
 
-  .sliderRoot {
+  .slider-root {
     grid-area: slider;
     margin: auto;
     width: 400px;
